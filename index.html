@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/emerald.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emerald ✨</title>
+    <meta
+      name="description"
+      content="The Emerald service, your one stop solution for all you're nefarious needs"
+    />
+    <meta name="og:image" content="/emerald.png" />
+
+    <link rel="prefetch" href="/scram/scramjet.worker.js" />
+    <link rel="prefetch" href="/scram/scramjet.shared.js" />
+    <script
+      id="aclib"
+      type="text/javascript"
+      src="//acscdn.com/script/aclib.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/scram/scramjet.controller.js"></script>
+    <script>
+      const scramjet = new ScramjetController({
+        prefix: "/~/scramjet/",
+        files: {
+          wasm: "/scram/scramjet.wasm.js",
+          worker: "/scram/scramjet.worker.js",
+          client: "/scram/scramjet.client.js",
+          shared: "/scram/scramjet.shared.js",
+          sync: "/scram/scramjet.sync.js",
+        },
+      });
+      window.sj = scramjet;
+    </script>
+    <script type="text/javascript">
+      aclib.runInPagePush({
+        zoneId: "8991198",
+        refreshRate: 30,
+        maxAds: 2,
+      });
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
